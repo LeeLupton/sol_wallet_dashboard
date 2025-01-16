@@ -1,17 +1,24 @@
-from flask import Flask, render_template
+import json
+from flask import Flask, render_template, request, redirect, url_for
 import requests
 
 app = Flask(__name__)
 
-# Wallet addresses
-wallets = {
-    "Photon Wallet": "your_photon_wallet_address",
-    "Phantom Wallet": "your_phantom_wallet_address",
-    "Exodus Wallet": "your_exodus_wallet_address",
-    "Odinbot Wallet": "your_odinbot_wallet_address",
-    "Coinbase Wallet": "your_coinbase_wallet_address",
-    "Robinhood Wallet": "your_robinhood_wallet_address",
-}
+# File to store wallet data
+WALLET_FILE = "wallets.json"
+
+def load_wallets():
+    """Load wallets from the JSON file."""
+    try:
+        with open(WALLET_FILE, 'r') as file:
+            return json.load(file)
+    except FileNotFoundError:
+        return {}
+
+def save_wallets(wallets):
+    """Save wallets to the JSON file."""
+    with open(WALLET_FILE, 'w') as file:
+        json.dump(wallets, file)
 
 def fetch_sol_balance(address):
     """Fetch SOL balance for a given wallet address using Solana API."""
@@ -62,8 +69,22 @@ def fetch_token_prices(mints):
     response = requests.get(url, params=params).json()
     return {mint: response.get(mint, {}).get('usd', 0) for mint in mints}
 
+@app.route('/add_wallet', methods=['POST'])
+def add_wallet():
+    """Add a new wallet."""
+    wallet_name = request.form['wallet_name']
+    wallet_address = request.form['wallet_address']
+    
+    if wallet_name and wallet_address:
+        wallets = load_wallets()
+        wallets[wallet_name] = wallet_address
+        save_wallets(wallets)
+    
+    return redirect(url_for('dashboard'))
+
 @app.route('/')
 def dashboard():
+    wallets = load_wallets()
     sol_price = fetch_sol_price()
     wallet_data = []
     total_sol = 0

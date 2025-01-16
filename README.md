@@ -1,5 +1,5 @@
-![Python](https://img.shields.io/badge/Python-3.9-blue)
-![Flask](https://img.shields.io/badge/Flask-2.0.2-green)
+![Python](https://img.shields.io/badge/Python-3.12.8-blue)
+![Flask](https://img.shields.io/badge/Flask-3.1.0-green)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 # Sol Wallet Dashboard
 

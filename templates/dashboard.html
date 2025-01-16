@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sol Wallet Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="mb-4">Sol Wallet Dashboard</h1>
+        
+        <!-- Add Wallet Form -->
+        <form action="/add_wallet" method="POST" class="mb-4">
+            <div class="row">
+                <div class="col-md-5">
+                    <input type="text" name="wallet_name" class="form-control" placeholder="Wallet Name" required>
+                </div>
+                <div class="col-md-5">
+                    <input type="text" name="wallet_address" class="form-control" placeholder="Wallet Address" required>
+                </div>
+                <div class="col-md-2">
+                    <button type="submit" class="btn btn-primary">Add Wallet</button>
+                </div>
+            </div>
+        </form>
+
+        <!-- Wallet Cards -->
+        <div class="row">
+            {% for wallet in wallets %}
+            <div class="col-md-4">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ wallet.name }}</h5>
+                        <p class="card-text">SOL: {{ wallet.sol | round(2) }}</p>
+                        <p class="card-text">USD: ${{ wallet.usd | round(2) }}</p>
+                        
+                        {% if wallet.spl_tokens %}
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                SPL Tokens
+                            </button>
+                            <ul class="dropdown-menu">
+                                {% for token in wallet.spl_tokens %}
+                                <li>
+                                    <span class="dropdown-item">
+                                        Mint: {{ token.mint }}<br>
+                                        Balance: {{ token.balance | round(2) }}<br>
+                                        USD Value: ${{ token.usd_value | round(2) }}
+                                    </span>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

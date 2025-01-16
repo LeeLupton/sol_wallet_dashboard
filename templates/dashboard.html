@@ -32,8 +32,8 @@
                 <div class="card mb-3">
                     <div class="card-body">
                         <h5 class="card-title">{{ wallet.name }}</h5>
-                        <p class="card-text">SOL: {{ wallet.sol | floatformat:9 }}</p>
-                        <p class="card-text">USD: ${{ wallet.usd | round(4) }}</p>
+                        <p class="card-text">SOL: {{ "%.9f"|format(wallet.sol) }}</p>
+                        <p class="card-text">USD: ${{ wallet.usd | round(2) }}</p>
                         
                         {% if wallet.spl_tokens %}
                         <div class="dropdown">

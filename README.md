@@ -209,3 +209,5 @@ Add support for additional blockchain networks.
 
 Improve USD conversion accuracy for SPL tokens.
 
+## Contributing
+Contributions are welcome! If you’d like to add features or report bugs, please open an issue or submit a pull request.

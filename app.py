@@ -30,12 +30,7 @@ def fetch_sol_balance(address):
         "params": [address]
     }
     response = requests.post(url, json=payload).json()
-    try:
-        lamports = response['result']['value']
-        return lamports / 10**9  # Convert Lamports to SOL
-    except KeyError:
-        print(f"Error fetching balance for {address}: {response}")
-        return 0
+    return response['result']['value'] / 10**9  # Convert Lamports to SOL
 
 def fetch_spl_tokens(address):
     """Fetch SPL token balances for a given wallet address."""

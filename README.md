@@ -45,7 +45,7 @@ Follow these steps to set up and run the Sol Wallet Dashboard:
 Download and install Termux from the Play Store. 
 
 Add the shortcut widget. 
-[](assets/Screenshot_2025-01-16-10-43-09-81_b783bf344239542886fee7b48fa4b892.jpg) 
+![](assets/Screenshot_2025-01-16-10-43-09-81_b783bf344239542886fee7b48fa4b892.jpg) 
 
 ---
 

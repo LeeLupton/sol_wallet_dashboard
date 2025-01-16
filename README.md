@@ -81,7 +81,7 @@ Test the connection.
 ssh -T git@github.com
 ```
 
-3. Clone the Repository
+4. Clone the Repository
 
 Clone the repository to your local Termux environment:
 
@@ -97,7 +97,7 @@ cd sol_wallet_dashboard
 
 ---
 
-4. Install Python Requirements
+5. Install Python Requirements
 
 Install the required Python libraries using:
 
@@ -107,7 +107,7 @@ pip install -r requirements.txt
 
 ---
 
-5. Run the Application
+6. Run the Application
 
 Start the Flask server:
 
@@ -120,7 +120,7 @@ The application will start and run on http://127.0.0.1:5000.
 
 ---
 
-6. Open the Dashboard
+7. Open the Dashboard
 
 1. Open your mobile browser (e.g., Chrome or Edge).
 
@@ -135,7 +135,7 @@ http://127.0.0.1:5000
 
 ---
 
-7. Add Wallets
+8. Add Wallets
 
 Use the dashboard interface to add wallet names and their respective public addresses. The app will dynamically fetch and display balances for SOL and SPL tokens.
 

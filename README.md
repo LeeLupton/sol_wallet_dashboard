@@ -52,9 +52,10 @@ Download and install Termux from the Play Store.
 
 Open Termux and run:
 
+```
 pkg update && pkg upgrade -y
 pkg install python git -y
-
+```
 
 ---
 3. Setup ssh on termux for git

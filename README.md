@@ -1,4 +1,6 @@
-
+![Python](https://img.shields.io/badge/Python-3.9-blue)
+![Flask](https://img.shields.io/badge/Flask-2.0.2-green)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 # Sol Wallet Dashboard
 
 Sol Wallet Dashboard is a Flask-based application that allows users to monitor their Solana wallets, including balances in SOL and SPL tokens, and their total USD value. This app is designed to work seamlessly on Android devices through the Termux terminal.

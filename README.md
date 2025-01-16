@@ -208,16 +208,3 @@ Add support for additional blockchain networks.
 
 Improve USD conversion accuracy for SPL tokens.
 
-
-
----
-
-License
-
-This project is licensed under the MIT License.
-
-
----
-
-Let me know if you'd like further customization for this README!
-
